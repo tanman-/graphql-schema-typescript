@@ -1,12 +1,11 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { GraphQLSchema, buildSchema } from 'graphql';
+import { GraphQLSchema, buildSchema, IntrospectionQuery } from 'graphql';
 import { GenerateTypescriptOptions, defaultOptions } from './types';
 import { TSResolverGenerator, GenerateResolversResult } from './typescriptResolverGenerator';
 import { TypeScriptGenerator } from './typescriptGenerator';
 import { formatTabSpace, introspectSchema, introspectSchemaViaLocalFile } from './utils';
 import { isString } from 'util';
-import { IntrospectionQuery } from 'graphql/utilities/introspectionQuery';
 
 export { GenerateTypescriptOptions } from './types';
 
