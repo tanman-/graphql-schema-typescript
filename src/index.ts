@@ -5,7 +5,6 @@ import { GenerateTypescriptOptions, defaultOptions } from './types';
 import { TSResolverGenerator, GenerateResolversResult } from './typescriptResolverGenerator';
 import { TypeScriptGenerator } from './typescriptGenerator';
 import { formatTabSpace, introspectSchema, introspectSchemaViaLocalFile } from './utils';
-import { isString } from 'util';
 
 export { GenerateTypescriptOptions } from './types';
 
@@ -43,7 +42,7 @@ export const generateTSTypesAsString = async (
     const mergedOptions = { ...defaultOptions, ...options };
 
     let introspectResult: IntrospectionQuery;
-    if (isString(schema)) {
+    if (typeof schema === 'string') {
         // is is a path to schema folder?
         try {
             const schemaPath = path.resolve(schema);
